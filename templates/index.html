@@ -1,0 +1,31 @@
+<doctype html>
+<head>
+    <title>வென்முரசில் வார்த்தைகள்</title>
+</head>
+<h1>வென்முரசில் வார்த்தைகள்</h1>
+<h2>தேடுங்கள்...</h2>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.search) }}
+  </dl>
+  <p><input type=submit value=Search>
+</form>
+<br>
+<p>
+... பொருமை, ஒரு தரம் தட்டிவிட்டு கொஞ்சம் காத்து இருக்கவும்.. (ஒன்னு ரெண்டு இல்ல.. 26 புத்தகம்.. &#128591;)!
+</p>
+<pre>
+{{ results.decode('utf-8') | safe }}
+</pre>
